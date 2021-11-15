@@ -13,14 +13,18 @@
 ; 3. Press Enter key. A file explorer dialog will appear.
 ; 
 ; Obviously, [AutoHotkey](https://autohotkey.com/) must be installed for this to work.
-*CapsLock::
-    Send {Blind}{Ctrl Down}
-    cDown := A_TickCount
-Return
 
-*CapsLock up::
-    If ((A_TickCount-cDown)<125)  ; Modify press time as needed (milliseconds)
-        Send {Blind}{Ctrl Up}{Esc}
+SetCapslockState AlwaysOFF
+
+$CapsLock::
+    KeyWait, CapsLock, T0.125
+    If (ErrorLevel = 1)
+    {
+        Send {Ctrl Down}
+        KeyWait CapsLock
+        Send {Ctrl Up}
+    }
     Else
-        Send {Blind}{Ctrl Up}
-Return
+        Send {Esc}
+    Return
+

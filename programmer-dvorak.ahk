@@ -4,10 +4,11 @@ GroupAdd, NoDVP, ahk_exe RainbowSix.exe
 GroupAdd, NoDVP, ahk_exe Warframe.x64.exe
 GroupAdd, NoDVP, ahk_exe csgo.exe
 GroupAdd, NoDVP, ahk_exe SC2_x64.exe
-GroupAdd, NoDVP, ahk_exe aimlab_tb.exe
-GroupAdd, NoDVP, ahk_exe TheAscent-Win64-Shipping.exe
 GroupAdd, NoDVP, ahk_exe Overwatch.exe
 GroupAdd, NoDVP, ahk_exe RelicCardinal.exe
+GroupAdd, NoDVP, ahk_exe Cyberpunk2077.exe
+GroupAdd, NoDVP, ahk_exe bf1.exe
+GroupAdd, NoDVP, ahk_exe riftbreaker_win_release.exe
 
 ; IDK what this really does just for fun
 ;#InstallKeybdHook
