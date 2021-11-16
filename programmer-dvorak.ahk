@@ -105,16 +105,4 @@ n::b
 .::v
 /::z
 
-; Ctrl Tap as Esc
-$~*Ctrl:: 
-if !state 
-        state :=  (GetKeyState("Shift", "P") ||  GetKeyState("Alt", "P") || GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
-    return 
-
-$~ctrl up::
-if instr(A_PriorKey, "control") && !state
-        send {esc}
-    state := 0 
-return 
-
 #IfWinNotActive

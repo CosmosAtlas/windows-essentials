@@ -16,15 +16,15 @@
 
 SetCapslockState AlwaysOFF
 
-$CapsLock::
-    KeyWait, CapsLock, T0.125
-    If (ErrorLevel = 1)
-    {
-        Send {Ctrl Down}
-        KeyWait CapsLock
-        Send {Ctrl Up}
-    }
-    Else
-        Send {Esc}
-    Return
-
+*CapsLock::
+	Send {LControl down}
+	Return
+*CapsLock up::
+	Send {LControl Up}
+	if (A_PriorKey=="CapsLock"){
+		if (A_TimeSincePriorHotkey < 150)
+			Suspend On
+			Send, {Esc}
+			Suspend Off
+	}
+	Return
