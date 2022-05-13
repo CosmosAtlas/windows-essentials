@@ -17,14 +17,14 @@
 SetCapslockState AlwaysOFF
 
 *CapsLock::
-	Send {LControl down}
-	Return
+    Send {Blind}{Ctrl Down}
+    cDown := A_TickCount
+Return
+
 *CapsLock up::
-	Send {LControl Up}
-	if (A_PriorKey=="CapsLock"){
-		if (A_TimeSincePriorHotkey < 150)
-			Suspend On
-			Send, {Esc}
-			Suspend Off
-	}
-	Return
+    If ((A_TickCount-cDown)<125)  ; Modify press time as needed (milliseconds)
+        Send {Blind}{Ctrl Up}{Esc}
+    Else
+        Send {Blind}{Ctrl Up}
+Return
+

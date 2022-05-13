@@ -7,8 +7,20 @@ GroupAdd, NoDVP, ahk_exe SC2_x64.exe
 GroupAdd, NoDVP, ahk_exe Overwatch.exe
 GroupAdd, NoDVP, ahk_exe RelicCardinal.exe
 GroupAdd, NoDVP, ahk_exe Cyberpunk2077.exe
+GroupAdd, NoDVP, ahk_exe DSPGAME.exe
+GroupAdd, NoDVP, ahk_exe Megaquarium.exe
+GroupAdd, NoDVP, ahk_exe GRW.exe
+GroupAdd, NoDVP, ahk_exe BF2042.exe
+GroupAdd, NoDVP, ahk_exe factorio.exe
+GroupAdd, NoDVP, ahk_exe Legion TD 2.exe
+GroupAdd, NoDVP, ahk_exe PummelParty.exe
+GroupAdd, NoDVP, ahk_exe Among Us.exe
+GroupAdd, NoDVP, ahk_exe krita.exe
+GroupAdd, NoDVP, ahk_exe dota2.exe
+GroupAdd, NoDVP, ahk_exe StardewModdingAPI.exe
 GroupAdd, NoDVP, ahk_exe bf1.exe
-GroupAdd, NoDVP, ahk_exe riftbreaker_win_release.exe
+GroupAdd, NoDVP, ahk_exe VampireSurvivors.exe
+GroupAdd, NoDVP, ahk_exe anki.exe
 
 ; IDK what this really does just for fun
 ;#InstallKeybdHook
@@ -104,5 +116,16 @@ n::b
 ,::w
 .::v
 /::z
+
+$~*Ctrl:: 
+if !state 
+        state :=  (GetKeyState("Shift", "P") ||  GetKeyState("Alt", "P") || GetKeyState("LWin", "P") || GetKeyState("RWin", "P"))
+    return 
+
+$~ctrl up::
+if instr(A_PriorKey, "control") && !state
+        send {esc}
+    state := 0 
+return
 
 #IfWinNotActive
